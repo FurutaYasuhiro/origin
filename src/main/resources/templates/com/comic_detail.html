@@ -1,0 +1,125 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/stylesheet.css">
+	<title>漫画詳細情報</title>
+  <body>
+<div th:replace="~{block/header::header}"></div>
+    <div class="container">
+      <h2 class="text-center mt-5">SLAM DUNK</h2>
+      <ul class="category">
+        <li>♠バスケ</li>
+        <li>♠少年漫画</li>
+        <li>♠学園</li>
+        </ul>
+        <div class="under-element">
+        <div class="card-body text-center">
+          <div class="row">
+      <div class="col-md-6">
+        <img class="h-75 ml-5" src="img/slam1.JPG" ></img>
+      </div>
+      <div class="card-detail">
+        <p class="card-detail-text">
+        原作:井上雄彦<br><br>
+        作画:井上雄彦<br><br>
+        出版社:週刊少年ジャンプ<br><br>
+        連載期間:1990~1996 <br><br>
+        評価:4.8<br><br>
+        評価人数:5
+
+      </p>
+      </div>
+      </div>
+     </div>
+        </div>
+
+<div class="card　shadow text-center">
+<div class="owaku">
+<h4 class="text-left">古田</h4>
+
+  <div class="outline">
+    <p class="text-left">評価:5</p>
+<p  class="text-left">不朽の名作。これよりおもろい漫画ない。終始おもろくて最後まで駆け抜けていく漫画。
+唯一無二</p>
+</div>
+</div>
+</div>
+
+<div class="card　shadow text-center">
+
+<div class="owaku">
+<h4 class="text-left">本間</h4>
+
+  <div class="outline">
+
+    <p class="text-left">評価:5</p>
+<p  class="text-left">結局これが一番じゃないですか？アニメより断然コミック派。最終巻の絵は令和になった今でも漫画界最高峰だと思う。</p>
+
+</div>
+</div>
+</div>
+
+<div class="card　shadow text-center">
+<div class="owaku">
+<h4 class="text-left">布矢</h4>
+
+  <div class="outline">
+
+    <p class="text-left">評価:5</p>
+<p  class="text-left">アニメしか見てないけど超面白かった！ 私個人的には牧が好き。牧の体を生でみたい。抱っこされたい。</p>
+
+</div>
+</div>
+</div>
+<hr>
+
+
+<div class="content text-center owaku">
+    <a class="js-modal-open" href="">感想を登録する</a>
+</div>
+<div class="modal js-modal">
+    <div class="modal__bg js-modal-close"></div>
+    <div class="modal__content">
+      <label for="score">点数</label>
+    <input class="form-control bg-white" type="text" name="name" id="score"  style="max-width: 6em;"/><br/>
+            <p>感想</p>
+            <textarea class="form-control bg-white" rows="10" cols="60"></textarea>
+            <div>
+              <div class="text-left mt-4">
+              <button type="button" class="btn btn-outline-primary">登録</button>
+              </div>
+            <div class="text-right">
+            <a class="js-modal-close" href="">閉じる</a>
+            </div>
+
+            </div>
+    </div><!--modal__inner-->
+
+</div><!--modal-->
+
+</div>
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="../js/bootstrap.js"></script>
+   <script type="text/javascript" src="../js/comic.js"></script>
+
+
+</body>
+
+</html>

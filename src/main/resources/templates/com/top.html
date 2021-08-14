@@ -1,0 +1,83 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/stylesheet.css">
+	<title>Comic_library</title>
+  <body>
+<div th:replace="~{block/header::header}"></div>
+
+
+    <div class="container">
+
+<div role="main" class="inner cover mt-5 mb-5">
+        <h2 class="text-center">漫画図書館へようこそ</h2>
+        </div>
+
+
+    <div class="card  shadow">
+      <div class="card-header text-center font-weight-bold">メニュー</div>
+    <div class="card-body">
+            <div class="row mx-auto mt-4">
+                <!-- 入出力条件 SCG,CCG,SL,TL -->
+
+                  <div class="col-md-4 text-center">
+                    <a href="/comic/list" class="zoom-link" >
+                    <img class="rounded-lg mx-auto d-block shadow zoom-photo" src="../img/list.jpg" alt="漫画一覧" width="75" height="75">
+                    <span class="text-body d-block mt-3">漫画一覧</span>
+                    </a>
+                </div>
+
+                <div class="col-md-4 text-center">
+                <a  href="/comic/search" class="zoom-link">
+                    <img class="rounded-lg mx-auto d-block shadow zoom-photo" src="../img/search.PNG" alt="漫画検索" width="75" height="75">
+                    <span class="text-body d-block mt-3">漫画検索</span>
+                </a>
+                </div>
+
+                <div class="col-md-4 text-center" >
+                <a href="/comic/rank" class="zoom-link">
+                    <img class="rounded-lg mx-auto d-block shadow zoom-photo" src="../img/popular.png" alt="人気漫画ランキング" width="75" height="75">
+                    <span class="text-body d-block mt-3">人気漫画ランキング</span>
+                </a>
+              </div>
+            </div>
+      </div>
+</div>
+
+
+<div role="main" class="inner cover mt-5 mb-5">
+  <div class="m-3">
+      <h3 class="m-3">メニュー説明</h3>
+      <ul>
+      <li>漫画一覧・・・漫画タイトル一覧。どんな漫画があるか見たい時にオススメ</li>
+      <li>漫画検索・・・漫画検索機能。特定の漫画があるか調べる時にオススメ</li>
+      <li>人気漫画ランキング・・・みんなが評価してる漫画をランキング化。人気な漫画を知りたい時にオススメ</li>
+      </ul>
+    </div>
+</div>
+
+</div>
+
+
+<div th:replace="~{block/footer::footer}"></div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="../js/bootstrap.js"></script>
+
+
+</body>
+
+</html>
