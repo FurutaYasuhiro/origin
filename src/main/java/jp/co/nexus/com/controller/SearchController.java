@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 * TopController.java
 * comic_libraryの漫画検索画面機能に関するアプリケーション制御を行うクラス
 *
-* @author 古田 恭大
+* @author 山﨑
 *
 */
 @Controller
