@@ -29,7 +29,7 @@ public class ComicSearchDao {
 	public List<Map<String, Object>> comicNameSearch(String comic_name) {
 
 		// SQL文作成
-		String sql = "SELECT * FROM comic, author, publisher WHERE comic.author_id = author.author_id "
+		String sql = "SELECT *, publisher.name as publisher FROM comic, author, publisher WHERE comic.author_id = author.author_id "
 				+ "AND comic.publisher_id = publisher.publisher_id "
 				+ "AND comic.ruby like ?";
 
@@ -41,5 +41,49 @@ public class ComicSearchDao {
 
 		// 取得したリストを返す
 		return list;
+	}
+
+	/**
+	 *
+	 * @param comic_id
+	 * @return map 漫画の利用者・従業員合わせた評価人数を取得
+	 */
+	public Map<String, Object> evaluateCount(String comic_id) {
+
+		// SQL文作成
+		String sql = "SELECT COUNT(*) FROM "
+				+ "(SELECT * FROM user_evaluation UNION ALL SELECT * FROM employee_evaluation) as user_employee"
+				+ " WHERE comic_id = ? GROUP BY comic_id";
+
+		// ?の箇所を置換するデータの配列を定義
+		Object[] param = { comic_id };
+
+		// クエリを実行
+		Map<String, Object> map = jdbcTemplate.queryForMap(sql, param);
+
+		// 取得したマップデータを返す
+		return map;
+	}
+
+	/**
+	 *
+	 * @param comic_id
+	 * @return map 漫画の利用者・従業員合わせた平均評価点数を取得
+	 */
+	public Map<String, Object> avgEvaluate(String comic_id) {
+
+		// SQL文作成
+		String sql = "SELECT AVG(score) FROM "
+				+ "(SELECT * FROM user_evaluation UNION ALL SELECT * FROM employee_evaluation) as user_employee"
+				+ " WHERE comic_id = ?";
+
+		// ?の箇所を置換するデータの配列を定義
+		Object[] param = { comic_id };
+
+		// クエリを実行
+		Map<String, Object> map = jdbcTemplate.queryForMap(sql, param);
+
+		// 取得したマップデータを返す
+		return map;
 	}
 }
