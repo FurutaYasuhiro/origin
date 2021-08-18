@@ -20,12 +20,12 @@
             <li class="mb-2"><a class="nav-link" href="#author" data-toggle="tab">作者名</a></li>
             <li class="mb-2"><a class="nav-link" href="#publisher" data-toggle="tab">出版社</a></li>
         </ul>
-        <!-- <div class="m-2 text-danger">漫画名が未入力です。</div> -->
+        <div class="m-2 text-danger" th:text="${message}"></div>
         <form method="post" action="/comic/search">
             <div class="tab-content">
                 <div class="tab-pane m-2 active" id="comic">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="comicName" placeholder="カタカナで漫画名を入力してください。">
+                        <input type="text" class="form-control" name="comicName" th:value="${comicName}" placeholder="カタカナで漫画名を入力してください。">
                         <span class="input-group-btn">
                           <button class="btn btn-primary" type="submit" name="button" value="comicNameTab">検索</button>
                         </span>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="tab-pane m-2" id="author">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="authorName" placeholder="作者名を入力してください。">
+                        <input type="text" class="form-control" name="authorName" th:value="${authorName}" placeholder="作者名を入力してください。">
                         <span class="input-group-btn">
                           <button class="btn btn-primary" type="submit" name="button" value="authorTab">検索</button>
                         </span>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="tab-pane m-2" id="publisher">
                     <div class="input-group">
-                        <input type="text" class="form-control" name="publisherName" placeholder="出版社を入力してください。">
+                        <input type="text" class="form-control" name="publisherName" th:value="${publisherName}" placeholder="出版社を入力してください。">
                         <span class="input-group-btn">
                           <button class="btn btn-primary" type="submit" name="button" value="publisherTab">検索</button>
                         </span>
@@ -54,19 +54,18 @@
 
         <table class="table">
             <tr th:each="item:${comic_list}">
-            <td>
-                <div class="lead d-flex align-items-center">漫画名：<a href="#" th:text=${item.name}></a></div>
-            </td>
-                    
-                <td>
-                    <div class="mt-1" th:text="'作者：' + ${item.author}"></div>
-                    <div class="mt-1" th:text="'出版社：' + ${item.publisher}"></div>
-                </td>
-                <td>
-                    <div class="mt-1">評価：5.0</div>
-                    <div class="mt-1">評価人数：3人</div>
-                </td>
-            </tr>
+	            <td>
+	                <div class="lead d-flex align-items-center">漫画名：<a href="#" th:text=${item.name}></a></div>
+	            </td>
+	            <td>
+	                <div class="mt-1" th:text="'作者：' + ${item.author}"></div>
+	                <div class="mt-1" th:text="'出版社：' + ${item.publisher}"></div>
+	            </td>
+	            <td>
+	                <div class="mt-1" th:text="'評価：' + ${item.avgEvaluate}"></div>
+	                <div class="mt-1" th:text="'評価人数：' + ${item.evaluateCount} + 人"></div>
+	            </td>
+	         </tr>
 
         </table>
 

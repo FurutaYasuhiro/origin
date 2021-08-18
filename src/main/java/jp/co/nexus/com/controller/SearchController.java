@@ -49,22 +49,97 @@ public class SearchController {
 			@RequestParam(name = "publisherName") String publisherName,
 			@RequestParam(name = "button") String button,
 			RedirectAttributes attr) {
+		
+		// リクエストパラメータを保存
+		attr.addFlashAttribute("comicName", comicName);
+		attr.addFlashAttribute("authorName", authorName);
+		attr.addFlashAttribute("publisherName", publisherName);
 
-//		// 漫画名タブ選択時
-//		if(button.equals("comicNameTab")) {
+		// 取得するリストの変数を定義
+		List<Map<String, Object>> list = new ArrayList<>();
+		
+		// エラーメッセージを格納する変数を定義
+		String message = new String();
 
-			// 取得するリストの変数を定義
-			List<Map<String, Object>> list = new ArrayList<>();
+		// 漫画名タブ選択時
+		if(button.equals("comicNameTab")) {
+			
+			// 漫画名が未入力もしくはカタカナ以外だった場合
+			if(comicName.isBlank() || !comicName.matches("^[ァ-ヶー]*$")) {
+				
+				// 漫画名が未入力の場合
+				if(comicName.isBlank()) {
+					
+					// エラーメッセージを代入
+					message = "漫画名が未入力です。";
+					
+				// 漫画名がカタカナ以外だった場合
+				} else {
+					
+					// エラーメッセージを代入
+					message = "カタカナで漫画名を入力してください";
+				}
+				
+				// エラーメッセージを保存
+				attr.addFlashAttribute("message", message);
+				
+				// 漫画検索画面にリダイレクト
+				return "redirect:/comic/search"; 
+			}
 
 			// データを取得
 			list = comicSearchService.comicNameSearch(comicName);
 
-			// 取得したリストを保存
-			attr.addFlashAttribute("comic_list", list);
+		// 作者名タブ選択時
+		} else if(button.equals("authorTab")) {
+			
+			// 作者名が未入力の場合
+			if(authorName.isBlank()) {
+				
+				// エラーメッセージを代入
+				message = "作者名が未入力です。";
+				
+				// エラーメッセージを保存
+				attr.addFlashAttribute("message", message);
+				
+				// 漫画検索画面にリダイレクト
+				return "redirect:/comic/search";
+			}
 
-			// 漫画検索画面にリダイレクト
-			return "redirect:/comic/search";
-//		}
+			// データを取得
+			list = comicSearchService.authorNameSearch(authorName);
+			
+		// 出版社タブ選択時	
+		} else {
+			
+			// 出版社が未入力の場合
+			if(publisherName.isBlank()) {
+				
+				// エラーメッセージを代入
+				message = "出版社が未入力です。";
+				
+				// エラーメッセージを保存
+				attr.addFlashAttribute("message", message);
+				
+				// 漫画検索画面にリダイレクト
+				return "redirect:/comic/search";
+			}
+			
+			// データを取得
+			list = comicSearchService.publisherNameSearch(publisherName);
+		}
+		
+		// 取得したリストを保存
+		attr.addFlashAttribute("comic_list", list);
+		
+		// 検索結果が存在しなかった場合
+		if(list.isEmpty()) {
+			message = "該当する漫画はありません。";
+			attr.addFlashAttribute("message", message);
+		}
+		
+		// 漫画検索画面にリダイレクト
+		return "redirect:/comic/search";
 
 	}
 

@@ -42,6 +42,50 @@ public class ComicSearchDao {
 		// 取得したリストを返す
 		return list;
 	}
+	
+	/**
+	 * 漫画検索画面で作者名タブ選択時
+	 * @param author_name
+	 * @return list 全件取得結果のList
+	 */
+	public List<Map<String, Object>> authorNameSearch(String author_name) {
+
+		// SQL文作成
+		String sql = "SELECT *, publisher.name as publisher FROM comic, author, publisher WHERE comic.author_id = author.author_id "
+				+ "AND comic.publisher_id = publisher.publisher_id "
+				+ "AND author.author like ?";
+
+		// ?の箇所を置換するデータの配列を定義
+		Object[] param = { "%" + author_name + "%" };
+
+		// クエリを実行
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, param);
+
+		// 取得したリストを返す
+		return list;
+	}
+	
+	/**
+	 * 漫画検索画面で出版社タブ選択時
+	 * @param publisher_name
+	 * @return list 全件取得結果のList
+	 */
+	public List<Map<String, Object>> publisherNameSearch(String publisher_name) {
+
+		// SQL文作成
+		String sql = "SELECT *, publisher.name as publisher FROM comic, author, publisher WHERE comic.author_id = author.author_id "
+				+ "AND comic.publisher_id = publisher.publisher_id "
+				+ "AND publisher.name like ?";
+
+		// ?の箇所を置換するデータの配列を定義
+		Object[] param = { "%" + publisher_name + "%" };
+
+		// クエリを実行
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(sql, param);
+
+		// 取得したリストを返す
+		return list;
+	}
 
 	/**
 	 *
