@@ -32,6 +32,12 @@ public class ComicSearchService {
 		// データを取得
 		List<Map<String, Object>> list = comicSearchDao.comicNameSearch(comic_name);
 
+		// 各漫画の評価人数を取得
+		for(Map<String, Object> map : list) {
+			Map<String, Object> evaluateCount = comicSearchDao.evaluateCount(map.get("comic_id").toString());
+//			map.put(evaluateCount);
+		}
+
 		// 取得したリストを返す
 		return list;
 	}
