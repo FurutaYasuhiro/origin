@@ -10,103 +10,28 @@
 	<link rel="stylesheet" href="../css/stylesheet.css">
 	<title>漫画一覧</title>
   <body>
-<div th:replace="~{block/header::header}"></div>
+	<div th:replace="~{block/header::header}"></div>
     <div class="container">
-      <div class="p-3 mb-2 mt-5 bg-secondary text-white">ア行</div>
+    
+    <div class="mt-5"></div>
+    	<div th:each="str, s:${syllabary}">
+      		<div class="p-3 mb-2 bg-secondary text-white" th:if="${s.count % 5 == 1 || s.count == 39 || s.count == 44}" th:unless="${s.count == 41 || s.count == 46}" th:text="${str} + '行'"></div>
 
-
-      <div class = "ml-3" onclick="obj=document.getElementById('menu1').style; obj.display=(obj.display=='none')?'block':'none';">
-<a style="cursor:pointer;">ア▼</a>
-</div>
-<!-- ここから先を折りたたむ -->
-<div id="menu1" style="display:none;clear:both;">
-
-<hr>
-<a href ="#" class = "ml-3">ああっ女神さまっ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">ARMS</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アイアムアヒーロー</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アイシールド21</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">I"s</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">OUT</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アオアシ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">蒼き鋼のアルペジオ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">青の祓魔師</a>
-<hr>
-
-</div>
-
-<div class = "ml-3" onclick="obj=document.getElementById('menu2').style; obj.display=(obj.display=='none')?'block':'none';">
-<a style="cursor:pointer;">イ▼</a>
-</div>
-<!-- ここから先を折りたたむ -->
-<div id="menu2" style="display:none;clear:both;">
-
-<hr>
-<a href ="#" class = "ml-3">ああっ女神さまっ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">ARMS</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アイアムアヒーロー</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アイシールド21</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">I"s</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">OUT</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">アオアシ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">蒼き鋼のアルペジオ</a>
-<hr>
-
-<hr>
-<a href ="#" class = "ml-3">青の祓魔師</a>
-<hr>
-
-</div>
-
-
-
-
-</div>
+      		<div class = "ml-3" th:onclick="|obj=document.getElementById('menu${s.index}').style; obj.display=(obj.display=='none')?'block':'none';|">
+				<a style="cursor:pointer;" th:text="${str} + '▼'"></a>
+			</div>
+			<!-- ここから先を折りたたむ -->			
+			<div th:id="'menu' + ${s.index}" style="display:none;clear:both;">
+		
+				<div th:each="item:${l_list[s.index]}">
+					<hr>
+					<a href ="#" class = "ml-3" th:text="${item.ruby}"></a>
+					<hr>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
 <div th:replace="~{block/footer::footer}"></div>
 
