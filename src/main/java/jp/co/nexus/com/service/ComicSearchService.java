@@ -88,10 +88,14 @@ public class ComicSearchService {
 
 			// 漫画の平均評価点数を取得
 			Map<String, Object> avgEvaluate = comicSearchDao.avgEvaluate(comic_id);
+			
+			// 平均評価点数を少数第二位で四捨五入
+			double evaluate = (Double)avgEvaluate.get("AVG(score)");
+			evaluate = Math.round(evaluate * 10.0)/10.0;
 
 			// 検索結果の各リストに評価人数と平均評価点数を追加
 			map.put("evaluateCount", evaluateCount.get("COUNT(*)"));
-			map.put("avgEvaluate", avgEvaluate.get("AVG(score)"));
+			map.put("avgEvaluate", evaluate);
 		}
 
 		// 追加したリストを返す
