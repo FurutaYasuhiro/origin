@@ -32,181 +32,98 @@
       <div class="tab-content">
         <div id="top" class="tab-pane active">
 
+
           <div class="card-body">
+			<div th:each="s, item:${top_list}">
+            <div class="row d-flex align-items-center">
+        		<div class="col-md-1">
+        			<h1 class="m-5" th:text="${item.count}"></h1>
+        		</div>
+        		<div class="col-md-3">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		</div>
+        		<div class="col-md-6">
+          			<a href="#">
+          				<font color="#000000">
+          					<h2 class="text-center" th:text="${s.name}"></h2>
+          				</font>
+          			</a>
+          			<hr>
+          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+          			<hr>
+          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+        		</div>
+       		</div>
+       		<hr>
+		</div>
+       	</div>
 
-            <div class="row d-flex align-items-center" style="height:200px;">
-        <div class="col-md-1" style="height:200px;">
-        <h1 class="m-5">1</h1>
-        </div>
-        <div class="col-md-3">
-          <img class="h-100 ml-5" src="img/slam1.JPG" ></img>
-        </div>
-        <div class="col-md-6">
-          <a href="#"><font color="#000000">
-          <h2 class="text-center">SLAM DUNK</h2></font>
-          </a>
-          <hr>
-          <p>作者:井上雄彦&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年ジャンプ</p>
-          <hr>
-          <p class="pt-2">評価:5&nbsp;&nbsp;&nbsp;&nbsp;評価人数:5</p>
-        </div>
-       </div>
-       <hr>
+	</div>
 
-       <div class="row d-flex align-items-center" style="height:200px;">
-         <div class="col-md-1" style="height:200px;">
-         <h2 class="m-5">2</h2>
-         </div>
-         <div class="col-md-3">
-           <img class="h-100 ml-5" src="img/death.JPG" ></img>
-         </div>
-         <div class="col-md-6">
-           <h2 class="text-center">DEATH NOTE</h2>
-           <hr>
-           <p>原作:大場つぐみ&nbsp;作画:小畑健&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年ジャンプ</p>
-           <hr>
-           <p class="pt-2">評価:5&nbsp;&nbsp;&nbsp;&nbsp;評価人数:3</p>
-         </div>
-        </div>
-        <hr>
+	<div id="mid" class="tab-pane">
 
-        <div class="row d-flex align-items-center" style="height:200px;">
-          <div class="col-md-1" style="height:200px;">
-          <h3 class="m-5">3</h3>
-          </div>
-          <div class="col-md-3">
-            <img class="h-100 ml-5" src="img/naruto.JPG" ></img>
-          </div>
-          <div class="col-md-6">
-            <h2 class="text-center">NARUTO -ナルト-</h2>
-            <hr>
-            <p>作者:岸本斉史&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年ジャンプ</p>
-            <hr>
-            <p class="pt-2">評価:4.8&nbsp;&nbsp;&nbsp;&nbsp;評価人数:3</p>
-          </div>
-         </div>
-         <hr>
+          <div class="card-body">
+			<div th:each="s, item:${mid_list}">
+            <div class="row d-flex align-items-center">
+        		<div class="col-md-1">
+        			<h1 class="m-5" th:text="${item.count} + 10"></h1>
+        		</div>
+        		<div class="col-md-3">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		</div>
+        		<div class="col-md-6">
+          			<a href="#">
+          				<font color="#000000">
+          					<h2 class="text-center" th:text="${s.name}"></h2>
+          				</font>
+          			</a>
+          			<hr>
+          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+          			<hr>
+          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+        		</div>
+       		</div>
+       		<hr>
+		</div>
+       	</div>
 
-       </div>
+	</div>
 
-</div>
+	<div id="bot" class="tab-pane">
 
-<div id="mid" class="tab-pane">
+          <div class="card-body">
+			<div th:each="s, item:${bot_list}">
+            <div class="row d-flex align-items-center">
+        		<div class="col-md-1">
+        			<h1 class="m-5" th:text="${item.count} + 20"></h1>
+        		</div>
+        		<div class="col-md-3">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		</div>
+        		<div class="col-md-6">
+          			<a href="#">
+          				<font color="#000000">
+          					<h2 class="text-center" th:text="${s.name}"></h2>
+          				</font>
+          			</a>
+          			<hr>
+          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+          			<hr>
+          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+        		</div>
+       		</div>
+       		<hr>
+		</div>
+       	</div>
 
-  <div class="card-body">
-    <div class="row d-flex align-items-center" style="height:200px;">
-<div class="col-md-1" style="height:200px;">
-<h4 class="m-5">11</h4>
-</div>
-<div class="col-md-3">
-  <img class="h-100 ml-5" src="img/fuka.JPG" ></img>
-</div>
-<div class="col-md-6">
-  <h2 class="text-center">風夏</h2>
-  <hr>
-  <p>作者:瀬尾公治&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年マガジン</p>
-  <hr>
-  <p class="pt-2">評価:4.2&nbsp;&nbsp;&nbsp;&nbsp;評価人数:1</p>
-</div>
-</div>
-<hr>
+	</div>
 
-<div class="row d-flex align-items-center" style="height:200px;">
- <div class="col-md-1" style="height:200px;">
- <h4 class="m-5">12</h4>
+
+
+  </div>
+
+
  </div>
- <div class="col-md-3">
-   <img class="h-100 ml-5" src="img/guran.JPG" ></img>
- </div>
- <div class="col-md-6">
-   <h2 class="text-center">ぐらんぶる</h2>
-   <hr>
-   <p>原作:井上堅二&nbsp;作画:吉岡公威&nbsp;&nbsp;&nbsp;&nbsp;出版社:good!アフタヌーン</p>
-   <hr>
-   <p class="pt-2">評価:4.1&nbsp;&nbsp;&nbsp;&nbsp;評価人数:2</p>
- </div>
-</div>
-<hr>
-
-<div class="row d-flex align-items-center" style="height:200px;">
-  <div class="col-md-1" style="height:200px;">
-  <h4 class="m-5">13</h4>
-  </div>
-  <div class="col-md-3">
-    <img class="h-100 ml-5" src="img/kanozyo.JPG" alt="彼女もカノジョ"></img>
-  </div>
-  <div class="col-md-6">
-    <h2 class="text-center">彼女もカノジョ</h2>
-    <hr>
-    <p>作者:ヒロユキ&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年マガジン</p>
-    <hr>
-    <p class="pt-2">評価:4&nbsp;&nbsp;&nbsp;&nbsp;評価人数:3</p>
-  </div>
- </div>
- <hr>
-
-</div>
-  </div>
-
-  <div id="bot" class="tab-pane">
-    <div class="card-body">
-      <div class="row d-flex align-items-center" style="height:200px;">
-  <div class="col-md-1" style="height:200px;">
-  <h4 class="m-5">21</h4>
-  </div>
-  <div class="col-md-3">
-    <img class="h-100 ml-5" src="../img/kaiji.JPG" ></img>
-  </div>
-  <div class="col-md-6">
-    <h2 class="text-center">賭博黙示録カイジ</h2>
-    <hr>
-    <p>作者:福本伸行&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊ヤングマガジン</p>
-    <hr>
-    <p class="pt-2">評価:3.8&nbsp;&nbsp;&nbsp;&nbsp;評価人数:4</p>
-  </div>
-  </div>
-  <hr>
-
-  <div class="row d-flex align-items-center" style="height:200px;">
-   <div class="col-md-1" style="height:200px;">
-   <h4 class="m-5">22</h4>
-   </div>
-   <div class="col-md-3">
-     <img class="h-100 ml-5" src="../img/toloveru.JPG" ></img>
-   </div>
-   <div class="col-md-6">
-     <h2 class="text-center">To LOVEる -とらぶる-</h2>
-     <hr>
-     <p>原作:長谷見沙貴&nbsp;作画:矢吹健太朗&nbsp;&nbsp;&nbsp;&nbsp;出版社:週刊少年ジャンプ</p>
-     <hr>
-     <p class="pt-2">評価:3.5&nbsp;&nbsp;&nbsp;&nbsp;評価人数:2</p>
-   </div>
-  </div>
-  <hr>
-
-  <div class="row d-flex align-items-center" style="height:200px;">
-    <div class="col-md-1" style="height:200px;">
-    <h4 class="m-5">23</h4>
-    </div>
-    <div class="col-md-3">
-      <img class="h-100 ml-5" src="../img/nigeru.JPG" alt="逃げるは恥だが役に立つ"></img>
-    </div>
-    <div class="col-md-6">
-      <h2 class="text-center">逃げるは恥だが役に立つ</h2>
-      <hr>
-      <p>作者:海野なつみ&nbsp;&nbsp;&nbsp;&nbsp;出版社:Kiss</p>
-      <hr>
-      <p class="pt-2">評価:3.5&nbsp;&nbsp;&nbsp;&nbsp;評価人数:1</p>
-    </div>
-   </div>
-   <hr>
-
-  </div>
-
-
-    </div>
-</div>
-</div>
 
 
 <div th:replace="~{block/footer::footer}"></div>

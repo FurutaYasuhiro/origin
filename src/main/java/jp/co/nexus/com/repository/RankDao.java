@@ -29,7 +29,7 @@ public class RankDao {
 	public List<Map<String, Object>> comicRank() {
 
 		// SQL文作成
-		String sql = "SELECT comic.name,author.author,art.art,publisher.name,sum_num,sum_eva FROM "
+		String sql = "SELECT comic.comic_id, comic.name,author.author,art.art,publisher.name as publisher,sum_num,sum_eva FROM "
 				+ "(SELECT comic_id,COUNT(*) AS sum_num FROM "
 				+ "(SELECT comic.comic_id,user_evaluation.score FROM "
 				+ "comic inner join user_evaluation on comic.comic_id = user_evaluation.comic_id UNION all "
