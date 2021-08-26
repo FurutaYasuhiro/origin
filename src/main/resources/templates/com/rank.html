@@ -23,7 +23,7 @@
           <a href="#mid" class="nav-link aiueo" data-toggle="tab">11~20位</a>
         </li>
         <li class="nav-item">
-          <a href="#bot" class="nav-link aiueo" data-toggle="tab">21位~30位</a>
+          <a href="#bot" class="nav-link aiueo" data-toggle="tab">21~30位</a>
         </li>
 
       </ul>
@@ -39,20 +39,27 @@
         		<div class="col-md-1">
         			<h1 class="m-5" th:text="${item.count}"></h1>
         		</div>
-        		<div class="col-md-3">
-          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		<div class="col-md-3" style="height:220px">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" height="212px" width="152px"></img>
         		</div>
-        		<div class="col-md-6">
-          			<a href="#">
-          				<font color="#000000">
-          					<h2 class="text-center" th:text="${s.name}"></h2>
-          				</font>
-          			</a>
-          			<hr>
-          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
-          			<hr>
-          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
-        		</div>
+        		
+	        		<div class="col-md-6 d-flex flex-column align-items-between" style="height:220px">
+	          			<div class="m-2">
+		          			<a href="#">
+		          				<font color="#000000">
+		          					<h2 class="text-center" th:text="${s.name}"></h2>
+		          				</font>
+	          				</a>
+	          			</div>
+	          			<div class="m-2">
+		          			<hr>
+		          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+		          			<hr>
+		          		</div>
+		          		<div class="m-2">
+	          				<p th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+	          			</div>
+	        		</div>
        		</div>
        		<hr>
 		</div>
@@ -68,20 +75,27 @@
         		<div class="col-md-1">
         			<h1 class="m-5" th:text="${item.count} + 10"></h1>
         		</div>
-        		<div class="col-md-3">
-          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		<div class="col-md-3" style="height:220px">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" height="212px" width="152px"></img>
         		</div>
-        		<div class="col-md-6">
-          			<a href="#">
-          				<font color="#000000">
-          					<h2 class="text-center" th:text="${s.name}"></h2>
-          				</font>
-          			</a>
-          			<hr>
-          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
-          			<hr>
-          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
-        		</div>
+        		
+	        		<div class="col-md-6 d-flex flex-column align-items-between" style="height:220px">
+	          			<div class="m-2">
+		          			<a href="#">
+		          				<font color="#000000">
+		          					<h2 class="text-center" th:text="${s.name}"></h2>
+		          				</font>
+	          				</a>
+	          			</div>
+	          			<div class="m-2">
+		          			<hr>
+		          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+		          			<hr>
+		          		</div>
+		          		<div class="m-2">
+	          				<p th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+	          			</div>
+	        		</div>
        		</div>
        		<hr>
 		</div>
@@ -97,20 +111,28 @@
         		<div class="col-md-1">
         			<h1 class="m-5" th:text="${item.count} + 20"></h1>
         		</div>
-        		<div class="col-md-3">
-          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" width="190px" height="265px"></img>
+        		<div class="col-md-3" style="height:220px">
+          			<img class="h-100 ml-5" th:src="|../img/${s.comic_id}.JPG|" height="212px" width="152px"></img>
         		</div>
-        		<div class="col-md-6">
-          			<a href="#">
-          				<font color="#000000">
-          					<h2 class="text-center" th:text="${s.name}"></h2>
-          				</font>
-          			</a>
-          			<hr>
-          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
-          			<hr>
-          			<p class="pt-2" th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
-        		</div>
+        		
+	        		<div class="col-md-6 d-flex flex-column align-items-between" style="height:220px">
+	          			<div class="m-2">
+		          			<a href="#">
+		          				<font color="#000000">
+		          					<h2 class="text-center" th:text="${s.name}"></h2>
+		          				</font>
+	          				</a>
+	          			</div>
+	          			<div class="m-2">
+		          			<hr>
+		          			<p th:text="|作者：${s.author}&nbsp;&nbsp;&nbsp;&nbsp;出版社：${s.publisher}|"></p>
+		          			<hr>
+		          		</div>
+		          		<div class="m-2">
+	          				<p th:text="|評価：${s.sum_eva}&nbsp;&nbsp;&nbsp;&nbsp;評価人数：${s.sum_num}|"></p>
+	          			</div>
+	        		</div>
+       			
        		</div>
        		<hr>
 		</div>
